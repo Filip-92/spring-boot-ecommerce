@@ -8,8 +8,6 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-
 import javax.persistence.EntityManager;
 import javax.persistence.metamodel.EntityType;
 import java.util.ArrayList;
@@ -26,9 +24,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         entityManager = theEntityManager;
     }
 
-
-    @Override
-    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
+    public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 
         HttpMethod[] theUnsupportedActions = {HttpMethod.PUT, HttpMethod.POST, HttpMethod.DELETE};
 
@@ -69,3 +65,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         config.exposeIdsFor(domainTypes);
     }
 }
+
+
+
+
+
+
+
+
+

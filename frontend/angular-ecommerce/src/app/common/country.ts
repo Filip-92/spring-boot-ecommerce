@@ -1,5 +1,5 @@
 export class Country {
-    id: number;
-    code: string;
-    name: string;
+    id: number | undefined;
+    code: string | undefined;
+    name: string | undefined;
 }

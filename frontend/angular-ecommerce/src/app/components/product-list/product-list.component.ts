@@ -18,12 +18,18 @@ export class ProductListComponent implements OnInit {
   previousCategoryId: number = 1;
   searchMode: boolean = false;
 
+  showProducts() {
+    for (var product of this.products) {
+      console.log(1);
+    }
+  }
+
   // new properties for pagination
   thePageNumber: number = 1;
   thePageSize: number = 5;
   theTotalElements: number = 0;
 
-  previousKeyword: string = null;
+  previousKeyword: string = null!;
 
   constructor(private productService: ProductService,
               private cartService: CartService,
@@ -33,6 +39,7 @@ export class ProductListComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     });
+    this.showProducts();
   }
 
   listProducts() {
@@ -50,7 +57,7 @@ export class ProductListComponent implements OnInit {
 
   handleSearchProducts() {
 
-    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
 
     // if we have a different keyword than previous
     // then set thePageNumber to 1
@@ -77,7 +84,7 @@ export class ProductListComponent implements OnInit {
 
     if (hasCategoryId) {
       // get the "id" param string. convert string to a number using the "+" symbol
-      this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
+      this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
     }
     else {
       // not category id available ... default to category id 1
@@ -107,7 +114,7 @@ export class ProductListComponent implements OnInit {
   }
 
   processResult() {
-    return data => {
+    return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; }) => {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1;
       this.thePageSize = data.page.size;

@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/common/cart-item';
 
+const PROD_ID = 'prodId';
+const CAT_ID = 'catId';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -13,6 +16,7 @@ import { CartItem } from 'src/app/common/cart-item';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
+  categoryId: number | undefined;
 
   constructor(private productService: ProductService,
               private cartService: CartService,
@@ -27,13 +31,18 @@ export class ProductDetailsComponent implements OnInit {
   handleProductDetails() {
 
     // get the "id" param string. convert string to a number using the "+" symbol
-    const theProductId: number = +this.route.snapshot.paramMap.get('id');
+    const theProductId: number = +this.route.snapshot.paramMap.get('id')!;
 
     this.productService.getProduct(theProductId).subscribe(
       data => {
         this.product = data;
       }
     )
+
+    this.categoryId = +this.route.snapshot.paramMap.get(CAT_ID)!;
+    this.route.paramMap.subscribe(() => {
+      this.handleProductDetails();
+    });
   }
 
   addToCart() {

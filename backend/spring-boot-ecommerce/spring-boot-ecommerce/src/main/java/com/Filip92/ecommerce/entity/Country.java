@@ -19,13 +19,23 @@ public class Country {
     private int id;
 
     @Column(name="code")
-    private  String code;
+    private String code;
 
     @Column(name="name")
     private String name;
 
-    // Set up one-to-many with states
     @OneToMany(mappedBy = "country")
     @JsonIgnore
     private List<State> states;
+
 }
+
+
+
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@ export class ECommerceValidators {
         }
         else {
             // valid, return null
-            return null;
+            return null as any;
         }
     }
 }

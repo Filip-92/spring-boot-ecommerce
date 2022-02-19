@@ -50,7 +50,7 @@ const routes: Routes = [
 
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
-  {path: 'products/:id', component: ProductDetailsComponent},
+  {path: 'category/:id/:name', component: ProductListComponent},
   {path: 'search/:keyword', component: ProductListComponent},
   {path: 'category/:id', component: ProductListComponent},
   {path: 'category', component: ProductListComponent},

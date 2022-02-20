@@ -47,3 +47,14 @@
     -moz-transition:all .5s ease;
     transition:all .5s ease
 }
+
+button {
+    max-height: 50px !important;
+    vertical-align: middle !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .login-status-user-info {
+        display: none !important;
+    }
+}

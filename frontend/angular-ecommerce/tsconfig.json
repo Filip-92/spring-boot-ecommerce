@@ -10,6 +10,12 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "types" : [
+      "core-js"
+    ],
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,

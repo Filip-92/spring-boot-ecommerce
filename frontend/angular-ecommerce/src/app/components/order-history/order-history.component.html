@@ -4,7 +4,7 @@
             <h3>Your Orders</h3>
 
             <div *ngIf="orderHistoryList.length > 0">
-                <table class="table table-bordered">
+                <table class="table table-bordered text-center">
                     <tr>
                         <th width="20%">Order Tracking Number</th>
                         <th width="10%">Total Price</th>
@@ -13,7 +13,7 @@
                     </tr>
 
                     <tr *ngFor="let tempOrderHistory of orderHistoryList">
-                        <td class="ml-1" style="margin-left: 5px;">
+                        <td class="ml-1 text-center">
                             {{ tempOrderHistory.orderTrackingNumber }}
                         </td>
                         <td>

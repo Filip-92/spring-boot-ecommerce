@@ -59,17 +59,30 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "sslKey": "./ssl/server.ley",
+            "sslCert": "./ssl/server.crt",
             "browserTarget": "angular-ecommerce:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "angular-ecommerce:build:production"
+            },
+            "qa": {
+              "browserTarget": "angular-ecommerce:build:qa"
             }
           }
         },

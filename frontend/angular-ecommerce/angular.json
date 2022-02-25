@@ -42,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -73,8 +72,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "sslKey": "./ssl/server.ley",
+            "sslKey": "./ssl/server.key",
             "sslCert": "./ssl/server.crt",
+            "ssl": true,
             "browserTarget": "angular-ecommerce:build"
           },
           "configurations": {

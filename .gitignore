@@ -20197,3 +20197,6 @@ frontend/angular-ecommerce/node_modules/es-abstract/2016/IsArray.js
 frontend/angular-ecommerce/node_modules/es-abstract/2016/IsCallable.js
 frontend/angular-ecommerce/node_modules/es-abstract/2016/IsCompatiblePropertyDescriptor.js
 frontend/angular-ecommerce/node_modules/es-abstract/2016/IsConcatSpreadable.js
+frontend/angular-ecommerce/ssl/server.crt
+frontend/angular-ecommerce/ssl/server.key
+backend/spring-boot-ecommerce/spring-boot-ecommerce/src/main/resources/server.p12
